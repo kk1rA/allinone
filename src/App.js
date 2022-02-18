@@ -3,6 +3,8 @@ import PostList from './components/PostList';
 import FormComponent from './components/FormComponent';
 import './styles/App.css';
 import Postfilter from './components/PostFilter';
+import Modalwindow from './components/UI/ModalWindow/ModalWindow';
+import Unibutton from './components/UI/UniButton';
 
 function App() {
   const [posts, setPosts] = useState([
@@ -10,10 +12,12 @@ function App() {
     {id: 2, title: 'Swift', description: 'Apple'},
     {id: 3, title: 'Python', description: 'Python'},
   ]);
-  const [filter, setFilter] = useState({sort: '', query: ''})
+  const [filter, setFilter] = useState({sort: '', query: ''});
+  const [modal, setModal] = useState(false);
 
   const createPost = (newPost) => {
-    setPosts([...posts, newPost])
+    setPosts([...posts, newPost]);
+    setModal(false);
   }
 
   const deletePost = (deletedPost) => {
@@ -34,7 +38,12 @@ function App() {
 
   return (
     <div className="App">
-      <FormComponent create={createPost}/>
+      <Unibutton onClick={() => setModal(true)}>
+        Создать пост
+      </Unibutton>
+      <Modalwindow visible={modal} setVisible={setModal}>
+        <FormComponent create={createPost}/>
+      </Modalwindow>
       <hr style={{marginTop: '20px', marginBottom: '20px'}}/>
       <Postfilter filter={filter} setFilter={setFilter}/>
       <PostList deletePost={deletePost} posts={searchedPosts} title="POSTS List"/>
