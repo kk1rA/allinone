@@ -5,6 +5,7 @@ import './styles/App.css';
 import Postfilter from './components/PostFilter';
 import Modalwindow from './components/UI/ModalWindow/ModalWindow';
 import Unibutton from './components/UI/UniButton';
+import { usePosts } from './hooks/usePosts';
 
 function App() {
   const [posts, setPosts] = useState([
@@ -14,6 +15,7 @@ function App() {
   ]);
   const [filter, setFilter] = useState({sort: '', query: ''});
   const [modal, setModal] = useState(false);
+  const searchedPosts = usePosts(posts, filter.sort, filter.query);
 
   const createPost = (newPost) => {
     setPosts([...posts, newPost]);
@@ -23,18 +25,6 @@ function App() {
   const deletePost = (deletedPost) => {
     setPosts(posts.filter((post) => post.id !== deletedPost.id));
   }
-
-  //Хук для кэширования измененного объека, используется для оптимизации
-  const sortedPost = useMemo(() => {
-    if(filter.sort) {
-      return [...posts].sort((a,b)=> a[filter.sort].localeCompare(b[filter.sort]));
-    }
-    return posts;
-  }, [filter.sort, posts]);
-
-  const searchedPosts = useMemo(() => {
-    return sortedPost.filter(post => post.title.toLowerCase().includes(filter.query.toLocaleLowerCase()));
-  }, [filter.query, sortedPost])
 
   return (
     <div className="App">
