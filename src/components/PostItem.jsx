@@ -6,7 +6,7 @@ const PostItem = (props) => {
     <div className='post'>
         <div className='post__content'>
           <strong>{props.number}. {props.post.title}</strong>
-          <div>{props.post.description}</div>
+          <div>{props.post.body}</div>
         </div>
         <div>
           <Unibutton onClick={() => props.delete(props.post)} title='Delete content'>Delete</Unibutton>
