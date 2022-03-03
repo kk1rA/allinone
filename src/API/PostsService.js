@@ -10,4 +10,12 @@ export default class PostsService {
         });
         return response;
     }
+
+    static async getPostById(id) {
+        return await axios.get(`https://jsonplaceholder.typicode.com/posts/${id}`); 
+    }
+
+    static async getPostCommentById(id) {
+        return await axios.get(`https://jsonplaceholder.typicode.com/posts/${id}/comments`); 
+    }
 }
