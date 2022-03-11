@@ -3,7 +3,7 @@
 /.pnp
 .pnp.js
 .git
-
+/dist
 # testing
 /coverage
 
