@@ -19,9 +19,10 @@ module.exports = {
   },
   resolve: {
     alias: {
-      components: path.resolve(__dirname, 'src/'),
+      'components': path.resolve(__dirname, 'src/components'),
+      'api': path.resolve(__dirname, 'src/API'),
     },
-    extensions: ['', '.js', '.jsx']
+    extensions: ['', '.js', '.jsx', 'ts', 'tsx']
   },
   module: {
     rules: [
@@ -41,7 +42,6 @@ module.exports = {
   plugins: [
     new HtmlWebpackPlugin({
       template: "./public/index.html",
-      title: 'All-In-One Boilerplate',
       filename: 'index.html',
     }),
     new CleanWebpackPlugin(),
