@@ -14,7 +14,6 @@ module.exports = {
     historyApiFallback: true,
     open: true,
     compress: true,
-    hot: true,
     port: 8080,
   },
   resolve: {
@@ -22,7 +21,7 @@ module.exports = {
       'components': path.resolve(__dirname, 'src/components'),
       'api': path.resolve(__dirname, 'src/API'),
     },
-    extensions: ['', '.js', '.jsx', 'ts', 'tsx']
+    extensions: ['', '.js', '.jsx']
   },
   module: {
     rules: [
