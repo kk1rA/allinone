@@ -23,6 +23,11 @@
   align-items: center;
 }
 
+.post__content {
+  width: 80%;
+  word-break: break-all;
+}
+
 .post-enter {
   transform: translateX(-550px);
 }
@@ -66,4 +71,7 @@
 
 .navbar__item {
   margin-left: 15px;
+  border: 2px solid teal;
+  border-radius: 5px;
+  padding: 5px;
 }

@@ -14,8 +14,8 @@ const Navbar = () => {
         <div className='navbar'>
           {
             isAuth ? 
-            <div className='navbar__item'>
-              <Unibutton onClick={logout} style={{marginBottom: 10}}>Выйти</Unibutton>
+            <div>
+              <Unibutton onClick={logout} style={{marginBottom: 15}}>Выйти</Unibutton>
             </div>
             : null
           }
