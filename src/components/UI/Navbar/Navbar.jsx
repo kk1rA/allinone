@@ -20,10 +20,13 @@ const Navbar = () => {
             : null
           }
           <div className='navbar__item'>
-            <Link to='/about'> О сайте</Link>
+            <Link to='/about'>О сайте</Link>
           </div>
           <div className='navbar__item'>
             <Link to='/posts'>Посты</Link>
+          </div>
+          <div className='navbar__item'>
+            <Link to='/memes'>Мемы</Link>
           </div>
       </div>
     );
