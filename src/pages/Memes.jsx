@@ -1,5 +1,5 @@
 import React from 'react'
-import MemesHeader from '../components/memes/MemesHeader';
+import MemesHeader from '../components/memes/MemesHeader/MemesHeader';
 
 const Memes = () => {
   return (
